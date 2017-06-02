@@ -20,6 +20,8 @@
   "dependencies": {
     "babel-register": "^6.24.1",
     "babel-cli": "^6.24.1",
-    "babel-preset-es2015": "^6.24.1"
+    "babel-preset-es2015": "^6.24.1",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-syntax-async-functions": "^6.13.0"
   }
 }
