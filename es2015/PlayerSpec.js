@@ -1,6 +1,6 @@
 import {Player} from './Player';
 
-it('playerSpec is true', () => {
-  const p = new Player({name: 'Hero', points: 15});
-  expect(p.name).toBe('Hero');
+it('player name is set', () => {
+  const p = new Player({name: 'Yoshimitsu', points: 15});
+  expect(p.name).toBe('Yoshimitsu');
 });
