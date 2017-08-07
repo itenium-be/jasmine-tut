@@ -4,7 +4,7 @@
 
 describe('Custom EqualityTesters', function() {
   beforeEach(function() {
-    const myCustomEquality = function(first, second) {
+    const customEquality = function(first, second) {
       if (first === 'everything' && typeof second === 'number') {
         // return true or false as final result of .toEqual
         return second === 42;
@@ -13,16 +13,19 @@ describe('Custom EqualityTesters', function() {
       return undefined;
     };
 
-    jasmine.addCustomEqualityTester(myCustomEquality);
+    jasmine.addCustomEqualityTester(customEquality);
   });
 
-  it('should use myCustomEquality', function() {
+  it('should use customEquality', function() {
     expect('everything').toEqual(42);
   });
 
-  it('should not use myCustomEquality', function() {
+  it('should not use customEquality', function() {
     expect('something').not.toEqual(42);
   });
+
+  // See CustomMatchSpec for an example of
+  // .toHaveBeenCalledWith(customEquality)
 });
 
 
