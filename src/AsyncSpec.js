@@ -1,7 +1,7 @@
 const customTimeout = 1000;
 
 describe('async', () => {
-  it('has a default timeout of 500ms', () => {
+  it('has a default timeout of 5000ms', () => {
     expect(jasmine.DEFAULT_TIMEOUT_INTERVAL).toBe(5000);
   });
 
