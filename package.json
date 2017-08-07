@@ -8,13 +8,19 @@
     "test:w": "nodemon --exec \"npm test\"",
     "test:alt": "jasmine JASMINE_CONFIG_PATH=spec/support/jasmine-alt.json",
     "test:cli": "jasmine --filter=\"describe and/or it\" --stop-on-failure=true --no-color --random=true -seed=7337",
-    "test:es2015": "babel-node es2015/run.js"
+    "test:es2015": "babel-node es2015/run.js",
+    "test:jest": "jest",
+    "test:jest:w": "jest --watch"
+  },
+  "jest": {
+    "testMatch": ["**/src/**/*.js", "**/src/BasicExampleSpec.js"]
   },
   "keywords": [],
   "author": "Wouter Van Schandevijl <woutervs@hotmail.com>",
   "license": "MIT",
   "devDependencies": {
     "jasmine": "^2.6.0",
+    "jest": "^20.0.4",
     "nodemon": "^1.11.0",
     "proxyquire": "^1.8.0"
   },
