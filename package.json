@@ -9,6 +9,7 @@
     "test:alt": "jasmine JASMINE_CONFIG_PATH=spec/support/jasmine-alt.json",
     "test:cli": "jasmine --filter=\"describe and/or it\" --stop-on-failure=true --no-color --random=true -seed=7337",
     "test:es2015": "babel-node es2015/run.js",
+    "karma": "karma start",
     "test:jest": "jest",
     "test:jest:w": "jest --watch"
   },
@@ -19,10 +20,15 @@
   "author": "Wouter Van Schandevijl <woutervs@hotmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "browserify": "^14.4.0",
     "jasmine": "^2.6.0",
     "jest": "^20.0.4",
+    "karma": "^1.7.0",
+    "karma-browserify": "^5.1.1",
+    "karma-jasmine": "^1.1.0",
     "nodemon": "^1.11.0",
-    "proxyquire": "^1.8.0"
+    "proxyquire": "^1.8.0",
+    "watchify": "^3.9.0"
   },
   "dependencies": {
     "babel-register": "^6.24.1",
