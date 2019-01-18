@@ -2,6 +2,8 @@
 
 [Code for bliki series on Jasmine][bliki-entry]
 
+Release tags match the Jasmine version covered.
+
 # Content
 
 Folders:  
