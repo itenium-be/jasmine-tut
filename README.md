@@ -25,7 +25,10 @@ npm t
 npm run test:w
 
 # Run tests with Babel compilation
-npm run test:babel
+npm run babel
+
+# Watch for changes
+npm run babel:w
 ```
 
 [bliki-entry]: https://itenium.be/blog/javascript/javascript-testing-jasmine-syntax

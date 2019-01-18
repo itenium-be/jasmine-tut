@@ -8,8 +8,11 @@
     "test:w": "nodemon --exec \"npm test\"",
     "test:alt": "jasmine JASMINE_CONFIG_PATH=spec/support/jasmine-alt.json",
     "test:cli": "jasmine --filter=\"describe and/or it\" --stop-on-failure=true --no-color --random=true -seed=7337",
-    "test:babel": "babel-node babel/run.js",
-    "jasmine:v": "jasmine -v"
+    "jasmine:v": "jasmine -v",
+    "babel": "npm run babel:clean && npm run babel:build && node babel/dist/run-jasmine.js",
+    "babel:w": "nodemon --exec \"npm run babel\" --ignore babel/dist/",
+    "babel:build": "babel babel --out-dir babel/dist --ignore babel/dist/",
+    "babel:clean": "del-cli babel/dist"
   },
   "keywords": [],
   "author": "Wouter Van Schandevijl <woutervs@hotmail.com>",
@@ -21,10 +24,11 @@
     "proxyquire": "^1.8.0"
   },
   "dependencies": {
-    "babel-register": "^6.24.1",
-    "babel-cli": "^6.24.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "babel-plugin-syntax-async-functions": "^6.13.0"
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.2.3",
+    "del-cli": "^1.1.0"
   }
 }
