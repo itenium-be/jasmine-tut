@@ -7,4 +7,5 @@ var myReporter = new JasmineConsoleReporter({
   listStyle: 'indent', // "flat"|"indent"
   activity: false
 });
+jasmine.getEnv().clearReporters();
 jasmine.getEnv().addReporter(myReporter);

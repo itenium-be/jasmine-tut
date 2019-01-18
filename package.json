@@ -8,14 +8,15 @@
     "test:w": "nodemon --exec \"npm test\"",
     "test:alt": "jasmine JASMINE_CONFIG_PATH=spec/support/jasmine-alt.json",
     "test:cli": "jasmine --filter=\"describe and/or it\" --stop-on-failure=true --no-color --random=true -seed=7337",
-    "test:es2015": "babel-node es2015/run.js"
+    "test:es2015": "babel-node es2015/run.js",
+    "jasmine:v": "jasmine -v"
   },
   "keywords": [],
   "author": "Wouter Van Schandevijl <woutervs@hotmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "jasmine": "^2.6.0",
-    "jasmine-console-reporter": "^1.2.7",
+    "jasmine": "^3.3.0",
+    "jasmine-console-reporter": "^3.1.0",
     "nodemon": "^1.11.0",
     "proxyquire": "^1.8.0"
   },

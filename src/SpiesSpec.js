@@ -1,4 +1,4 @@
-var bar = 0;
+var bar;
 const foo = {
   setBar(value, times) {
     bar = value * (times || 1);
@@ -8,8 +8,8 @@ const foo = {
 
 describe('Mata Hari', () => {
   beforeEach(() => {
+    bar = 0;
     const theSpy = spyOn(foo, 'setBar');
-    expect(theSpy.and.identity()).toBe('setBar');
 
     foo.setBar(1);
     foo.setBar(2, 10);
