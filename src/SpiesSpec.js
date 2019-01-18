@@ -140,3 +140,9 @@ describe('spyOnProperty', () => {
     expect(spiez).toHaveBeenCalled();
   });
 });
+
+
+// it('spyOnAllFunctions', () => {
+//   const obj = {}
+//   spyOnAllFunctions(obj);
+// });
