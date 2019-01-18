@@ -21,6 +21,12 @@ describe('async', () => {
   xit('can fail with a specific message', done => {
     Promise.reject().catch(done.fail.bind(this, 'done.fail("with your error message")'));
   }, customTimeout);
+
+
+  it('async/awaits', async () => {
+    const pie = await Promise.resolve(3.14);
+    expect(pie).toBe(3.14);
+  });
 });
 
 
@@ -52,4 +58,24 @@ describe('time travel', () => {
 
 
   afterEach(() => jasmine.clock().uninstall());
+});
+
+
+describe('expectAsync', () => {
+  it('can check for resolved', () => {
+    const pie = Promise.resolve(3.14);
+    expectAsync(pie).toBeResolved();
+    return expectAsync(pie).toBeResolvedTo(3.14);
+  });
+
+  it('can check for rejected', () => {
+    const pie = Promise.reject('reasons');
+    expectAsync(pie).toBeRejected();
+    expectAsync(pie).toBeRejectedWith('reasons');
+  });
+
+  it('can pass context - which will show on failure', () => {
+    const pie = Promise.resolve(42);
+    expectAsync(pie).withContext('test').toBeResolved();
+  });
 });
