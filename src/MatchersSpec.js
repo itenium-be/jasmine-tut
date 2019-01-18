@@ -23,6 +23,9 @@ describe('simple matchers', () => {
     expect('').toBeFalsy();
     expect().toBeUndefined();
     // .toBeNull(); .toBeDefined(); .toBeNaN();
+    // .toBeNegativeInfinity(); .toBePositiveInfinity();
+    // .toHaveClass(domEl): contains the class
+    // .withContext('show this on failure');
   });
 
   it('gets funky with partial matchers', () => {
@@ -32,6 +35,10 @@ describe('simple matchers', () => {
     expect({bar: 'baz', ack: 'yaye'}).toEqual(jasmine.objectContaining({bar: 'baz'}));
     expect([1, 2, 3]).not.toEqual(jasmine.arrayContaining([1, 6]));
     expect({foo: 'foobarbaz'}).toEqual({foo: jasmine.stringMatching('baz$')});
+
+    // jasmine.arrayWithExactContents()
+    // .empty(); .notEmpty();
+    // .truthy(); .falsy();
   });
 
   it('can check for errors', () => {
@@ -41,11 +48,12 @@ describe('simple matchers', () => {
 
     expect(foo).toThrow();
 
-    // Error message must be exact match in order to pass
-    expect(foo).toThrowError('foo bar baz');
+    expect(foo).toThrowError('foo bar baz'); // Error message must be exact match in order to pass
     expect(foo).toThrowError(/bar/);
     expect(foo).toThrowError(TypeError);
     expect(foo).toThrowError(TypeError, 'foo bar baz');
+
+    expect(foo).toThrowMatching(err => err.message.includes('baz'));
   });
 
   it('jasmine.any', () => {
