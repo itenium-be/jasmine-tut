@@ -13,3 +13,16 @@ const myReporter = new JasmineConsoleReporter({
 });
 jasmine.getEnv().clearReporters();
 jasmine.getEnv().addReporter(myReporter);
+
+
+// https://github.com/bcaudan/jasmine-spec-reporter
+if (false) {
+  const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
+
+  jasmine.getEnv().clearReporters();
+  jasmine.getEnv().addReporter(new SpecReporter({
+    spec: {
+      displayPending: true,
+    }
+  }));
+}
