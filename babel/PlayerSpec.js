@@ -4,3 +4,5 @@ it('player name is set', () => {
   const p = new Player({name: 'Yoshimitsu', points: 15});
   expect(p.name).toBe('Yoshimitsu');
 });
+
+// TODO: execute the flat() & flatMap() fns here

@@ -8,7 +8,7 @@
     "test:w": "nodemon --exec \"npm test\"",
     "test:alt": "jasmine JASMINE_CONFIG_PATH=spec/support/jasmine-alt.json",
     "test:cli": "jasmine --filter=\"describe and/or it\" --stop-on-failure=true --no-color --random=true -seed=7337",
-    "test:es2015": "babel-node es2015/run.js",
+    "test:babel": "babel-node babel/run.js",
     "jasmine:v": "jasmine -v"
   },
   "keywords": [],
