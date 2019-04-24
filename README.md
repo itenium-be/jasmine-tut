@@ -33,4 +33,11 @@ npm run babel
 npm run babel:w
 ```
 
+
+# AVA Tutorial
+
+Somehow, the [AVA Tutorial](https://itenium.be/blog/javascript/ava-tutorial/)
+code ended up here aswell.
+
+
 [bliki-entry]: https://itenium.be/blog/javascript/javascript-testing-jasmine-syntax
