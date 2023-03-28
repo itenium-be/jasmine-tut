@@ -50,6 +50,7 @@ describe('create your own spies', () => {
   it('create spy object with spy functions action1 and action2', () => {
     const spyObj = jasmine.createSpyObj('id', ['action1', 'action2']);
     spyObj.action1();
+    expect(spyObj).toHaveSpyInteractions();
     expect(spyObj.action1).toHaveBeenCalled();
     expect(spyObj.action2).not.toHaveBeenCalled();
   });

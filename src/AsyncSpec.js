@@ -62,20 +62,20 @@ describe('time travel', () => {
 
 
 describe('expectAsync', () => {
-  it('can check for resolved', () => {
+  it('can check for resolved', async () => {
     const pie = Promise.resolve(3.14);
-    expectAsync(pie).toBeResolved();
+    await expectAsync(pie).toBeResolved();
     return expectAsync(pie).toBeResolvedTo(3.14);
   });
 
-  it('can check for rejected', () => {
+  it('can check for rejected', async () => {
     const pie = Promise.reject('reasons');
-    expectAsync(pie).toBeRejected();
-    expectAsync(pie).toBeRejectedWith('reasons');
+    await expectAsync(pie).toBeRejected();
+    await expectAsync(pie).toBeRejectedWith('reasons');
   });
 
-  it('can pass context - which will show on failure', () => {
+  it('can pass context - which will show on failure', async () => {
     const pie = Promise.resolve(42);
-    expectAsync(pie).withContext('test').toBeResolved();
+    await expectAsync(pie).withContext('test').toBeResolved();
   });
 });

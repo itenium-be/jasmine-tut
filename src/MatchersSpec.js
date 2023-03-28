@@ -35,6 +35,7 @@ describe('simple matchers', () => {
     expect({bar: 'baz', ack: 'yaye'}).toEqual(jasmine.objectContaining({bar: 'baz'}));
     expect([1, 2, 3]).not.toEqual(jasmine.arrayContaining([1, 6]));
     expect({foo: 'foobarbaz'}).toEqual({foo: jasmine.stringMatching('baz$')});
+    expect('the foobarbaz?').toEqual(jasmine.stringContaining('baz'));
 
     // jasmine.arrayWithExactContents()
     // .empty(); .notEmpty();

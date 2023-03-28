@@ -17,7 +17,7 @@ Folders:
 
 # Running the tests
 
-```
+```sh
 npm install
 
 # Run once

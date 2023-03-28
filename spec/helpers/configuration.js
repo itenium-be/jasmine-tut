@@ -1,8 +1,8 @@
 // https://jasmine.github.io/api/edge/Configuration.html
 jasmine.getEnv().configure({
-  failFast: false,
+  stopOnSpecFailure: false,
   hideDisabled: false,
-  oneFailurePerSpec: false,
+  stopSpecOnExpectationFailure: false,
   random: true,
   seed: null, // null=random. Or use func: () => 4547;
   // specFilter: spec => spec.description.includes('custom'),

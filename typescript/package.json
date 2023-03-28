@@ -1,24 +1,20 @@
 {
   "name": "jasmine-tut",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Jasmine TypeScript example setup",
   "scripts": {
-    "test": "jasmine-ts",
+    "test": "cross-env NODE_OPTIONS=--loader=ts-node/esm jasmine",
     "test:w": "nodemon -e ts --exec \"npm test\""
   },
-  "keywords": [],
-  "author": "Wouter Van Schandevijl <woutervs@hotmail.com>",
+  "author": "itenium",
   "license": "MIT",
   "devDependencies": {
-    "jasmine": "^3.3.0",
-    "jasmine-spec-reporter": "^4.2.1",
-    "jasmine-ts": "^0.3.0"
-  },
-  "dependencies": {
-    "@types/jasmine": "^3.3.9",
+    "@types/jasmine": "^4.3.1",
+    "cross-env": "^7.0.3",
+    "jasmine": "^4.3.0",
+    "jasmine-spec-reporter": "^7.0.0",
     "nodemon": "^1.11.0",
-    "ts-node": "^8.0.2",
-    "typescript": "^3.3.3"
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
   }
 }

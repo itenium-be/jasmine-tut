@@ -1,8 +1,6 @@
 {
   "name": "jasmine-tut",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "jasmine",
     "test:w": "nodemon --exec \"npm test\"",
@@ -14,14 +12,14 @@
     "babel:build": "babel babel --out-dir babel/dist --ignore babel/dist/",
     "babel:clean": "del-cli babel/dist"
   },
-  "keywords": [],
-  "author": "Wouter Van Schandevijl <woutervs@hotmail.com>",
+  "author": "itenium",
   "license": "MIT",
   "devDependencies": {
-    "jasmine": "^3.3.0",
+    "jasmine": "^4.3.0",
     "jasmine-console-reporter": "^3.1.0",
-    "jasmine-spec-reporter": "^4.2.1",
-    "proxyquire": "^1.8.0"
+    "jasmine-reporters": "^2.5.2",
+    "jasmine-spec-reporter": "^7.0.0",
+    "proxyquire": "^2.1.3"
   },
   "dependencies": {
     "@babel/cli": "^7.2.3",
@@ -29,6 +27,7 @@
     "@babel/node": "^7.2.2",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.3",
+    "@types/jasmine": "^4.3.1",
     "core-js": "^2.6.2",
     "del-cli": "^1.1.0",
     "nodemon": "^1.11.0"
