@@ -11,8 +11,10 @@ describe('simple matchers', () => {
   });
 
   it('can check numbers', () => {
-    expect(5).toBeLessThan(10); // .toBeLessThanOrEqual(5);
-    expect(5).toBeGreaterThan(1); // .toBeGreaterThanOrEqual(5);
+    expect(5).toBeLessThan(10);
+    expect(5).toBeLessThanOrEqual(5);
+    expect(5).toBeGreaterThan(1);
+    expect(5).toBeGreaterThanOrEqual(5);
 
     const precision = 3;
     expect(Math.PI).toBeCloseTo(3.142, precision);
@@ -22,10 +24,17 @@ describe('simple matchers', () => {
     expect(1).toBeTruthy();
     expect('').toBeFalsy();
     expect().toBeUndefined();
-    // .toBeNull(); .toBeDefined(); .toBeNaN();
-    // .toBeNegativeInfinity(); .toBePositiveInfinity();
-    // .toHaveClass(domEl): contains the class
-    // .withContext('show this on failure');
+    expect(null).toBeNull();
+    expect({}).toBeDefined();
+    expect(NaN).toBeNaN();
+    expect(Infinity).toBePositiveInfinity();
+    expect(-Infinity).toBeNegativeInfinity();
+
+    // var el = new HTMLDivElement()
+    // el.className = 'foo bar baz';
+    // expect(el).toHaveClass('bar');
+
+    expect(15).withContext('show this on failure').toBe(15);
   });
 
   it('gets funky with partial matchers', () => {
@@ -37,9 +46,12 @@ describe('simple matchers', () => {
     expect({foo: 'foobarbaz'}).toEqual({foo: jasmine.stringMatching('baz$')});
     expect('the foobarbaz?').toEqual(jasmine.stringContaining('baz'));
 
-    // jasmine.arrayWithExactContents()
-    // .empty(); .notEmpty();
-    // .truthy(); .falsy();
+    expect([1, 2, 3]).toEqual(jasmine.arrayWithExactContents([1, 2, 3]));
+    expect([]).toEqual(jasmine.empty());
+    expect([1]).toEqual(jasmine.notEmpty());
+
+    expect(true).toEqual(jasmine.truthy());
+    expect(0).toEqual(jasmine.falsy());
   });
 
   it('can check for errors', () => {
