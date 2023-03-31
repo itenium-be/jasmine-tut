@@ -2,8 +2,6 @@
 
 [Code for bliki series on Jasmine][bliki-entry]
 
-Release tags match the Jasmine version covered.
-
 # Content
 
 Folders:  
@@ -14,6 +12,9 @@ Folders:
 	- `*.js`: the suite with all sorts of Jasmine functionality tests
 	- proxyquire: plugin examples
 - babel: do a Babel transpilation before running the tests
+- typescript: Jasmine with TypeScript
+- Jest: Converted the Jasmine examples to Jest
+
 
 # Running the tests
 

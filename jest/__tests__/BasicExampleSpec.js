@@ -1,11 +1,20 @@
-// ATTN: Note that these files are pretty much exactly the same for Jasmine & Jest
-
 describe('basic example', () => {
   beforeEach(() => {
     this.result = 1;
   });
 
+  // Screenshot area:
+  // it("can't get more basic than this", () => {
+  //   expect(1).toBe(1);
+  // });
+  // it('oh no, you donkey', () => {
+  //   expect(1).toBe(2);
+  // });
+
   it('can hardly fail', () => {
+    expect.hasAssertions();
+    expect.assertions(3);
+
     // toBe() uses ===
     expect(this.result).toBe(1);
 

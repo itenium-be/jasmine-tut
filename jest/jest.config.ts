@@ -17,7 +17,7 @@ export default {
     // clearMocks: false,
 
     // Indicates whether the coverage information should be collected while executing the test
-    collectCoverage: true,
+    // collectCoverage: true,
 
     // An array of glob patterns indicating a set of files for which coverage information should be collected
     // collectCoverageFrom: undefined,
@@ -94,7 +94,7 @@ export default {
     // modulePathIgnorePatterns: [],
 
     // Activates notifications for test results
-    // notify: false,
+    notify: true,
 
     // An enum that specifies notification mode. Requires { notify: true }
     // notifyMode: "failure-change",
@@ -132,10 +132,10 @@ export default {
     // runner: "jest-runner",
 
     // The paths to modules that run some code to configure or set up the testing environment before each test
-    // setupFiles: [],
+    setupFiles: [],
 
     // A list of paths to modules that run some code to configure or set up the testing framework before each test
-    // setupFilesAfterEnv: [],
+    setupFilesAfterEnv: ["./setupJest.js"],
 
     // The number of seconds after which a test is considered as slow and reported as such in the results.
     // slowTestThreshold: 5,
@@ -153,10 +153,11 @@ export default {
     // testLocationInResults: false,
 
     // The glob patterns Jest uses to detect test files
-    // testMatch: [
-    //   "**/__tests__/**/*.[jt]s?(x)",
-    //   "**/?(*.)+(spec|test).[tj]s?(x)"
-    // ],
+    testMatch: [
+       "**/__tests__/**/*Spec.[jt]s?(x)",
+      //  "**/__tests__/**/*.[jt]s?(x)",
+      //"**/?(*.)+(Spec|test).[tj]s?(x)"
+    ],
 
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
     // testPathIgnorePatterns: [
