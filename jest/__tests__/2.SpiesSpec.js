@@ -75,7 +75,7 @@ describe('Mata Hari', () => {
 
 
 describe('create your own spies', () => {
-  it('create bare spy without implementation', () => {
+  it('create bare spy with implementation', () => {
     const spy = jest.fn(() => true);
     spy.mockName('test')
     expect(spy.getMockName()).toBe('test');
@@ -162,7 +162,7 @@ describe('other ways to setup a spy', () => {
 
   afterEach(() => {
     // restore the spy created with spyOn & any props replaced
-    // So that a mockReturnValue() in test A does not interferes
+    // So that a mockReturnValue() in test A does not interfere
     // with test B
     jest.restoreAllMocks();
   });
