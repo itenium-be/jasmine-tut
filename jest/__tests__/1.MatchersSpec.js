@@ -1,13 +1,11 @@
-describe('simple matchers', () => {
-  it('(not) toBe & toEqual', () => {
+describe('Jest matchers', () => {
+  it('can negate any matcher with .not', () => {
     expect(1).not.toBe(0);
-    expect({a: {a: 3}}).toEqual({a: {a: 3}});
-    expect([0, {a: 1}]).toEqual([0, {a: 1}]);
   });
 
-  it('knows about regexes', () => {
-    expect('some bar').toMatch(/bar$/);
-    expect('some bar').toMatch(/\sbar/);
+  it('has toEqual for deep equal of Arrays/Objects', () => {
+    expect({a: {a: 3}}).toEqual({a: {a: 3}});
+    expect([0, {a: 1}]).toEqual([0, {a: 1}]);
   });
 
   it('can check numbers', () => {
@@ -27,29 +25,28 @@ describe('simple matchers', () => {
     expect(null).toBeNull();
     expect({}).toBeDefined();
     expect(NaN).toBeNaN();
-
-    // var el = new HTMLDivElement()
-    // el.className = 'foo bar baz';
-    // expect(el).toHaveClass('bar');
   });
 
-  it('gets funky with partial matchers', () => {
-    expect(['a', {b: {}}]).toContainEqual({b: {}});
-    expect('some string').toContain('some');
+  describe('get funky with partial matchers', () => {
+    it('partially matches Arrays', () => {
+      expect([1, 2]).toHaveLength(2);
+      expect(['a', {b: {}}]).toContainEqual({b: {}});
+      expect([1, 2, 3]).not.toEqual(expect.arrayContaining([1, 6]));
+    })
 
-    expect({bar: 'baz', ack: 'yaye'}).toEqual(expect.objectContaining({bar: 'baz'}));
-    expect([1, 2, 3]).not.toEqual(expect.arrayContaining([1, 6]));
-    expect({foo: 'foobarbaz'}).toEqual({foo: expect.stringMatching('baz$')});
-    expect('the foobarbaz?').toContain('baz');
-    expect('the foobarbaz?').toEqual(expect.stringContaining('baz'));
+    it('partially matches Objects', () => {
+      expect({bar: 'baz', ack: 'yaye'}).toEqual(expect.objectContaining({bar: 'baz'}));
+      expect({foo: 'foobarbaz'}).toEqual({foo: expect.stringMatching('baz$')});
+    })
 
-    // Jasmine stuff without Jest counterparts:
-    // expect([1, 2, 3]).toEqual(jasmine.arrayWithExactContents([1, 2, 3]));
-    // expect([]).toEqual(expect.empty());
-    // expect([1]).toEqual(jasmine.notEmpty());
+    it('partially matches strings', () => {
+      expect('the foobarbaz?').toContain('baz');
+      expect('the foobarbaz?').toEqual(expect.stringContaining('baz'));
+    })
 
-    // expect(true).toEqual(jasmine.truthy());
-    // expect(0).toEqual(jasmine.falsy());
+    it('can also use regex', () => {
+      expect('some bar').toMatch(/bar$/);
+    })
   });
 
   it('can check for errors', () => {
@@ -63,8 +60,6 @@ describe('simple matchers', () => {
     expect(foo).toThrowError(/bar/);
     expect(foo).toThrowError(TypeError);
     expect(foo).toThrowError(TypeError, 'foo bar baz');
-
-    // expect(foo).toThrowMatching(err => err.message.includes('baz'));
   });
 
   it('expect.any', () => {

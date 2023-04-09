@@ -1,24 +1,20 @@
 // jest.setTimeout(5000) // default timeout: 5s
 
-describe('async', () => {
-  test('has an optional "done" parameter', done => {
-    Promise.resolve()
-      .then(() => expect(true).toBeTruthy())
-      .then(done)
-      // .then(() => Promise.reject())
-      // .catch(() => done('That didn't work'));
+describe('async mocks', () => {
+  it('can resolve', async () => {
+    const asyncMock = jest.fn().mockResolvedValue(43); // also mockResolvedValueOnce
+    const result = await asyncMock();
+    expect(result).toBe(43)
   });
 
-  xit('can fail with a specific message', done => {
-    Promise.reject().catch(err => done(err || 'big fail'));
-  });
+  it('can reject', async () => {
+    const asyncMock = jest.fn().mockRejectedValue(43); // also mockRejectedValueOnce
+    // This is the same as:
+    // jest.fn().mockImplementation(() => Promise.reject(43));
 
-
-  it('async/awaits', async () => {
-    const pie = await Promise.resolve(3.14);
-    expect(pie).toBe(3.14);
+    return expect(asyncMock).rejects.toBe(43);
   });
-});
+})
 
 
 describe('time travel', () => {
@@ -40,7 +36,8 @@ describe('time travel', () => {
     jest.setSystemTime(baseTime);
 
     jest.advanceTimersByTime(50);
-    expect(new Date().getTime()).toEqual(baseTime.getTime() + 50);
+    const newDate = new Date().getTime()
+    expect(newDate).toEqual(baseTime.getTime() + 50);
 
     const realNow = jest.getRealSystemTime();
     expect(realNow).not.toEqual(baseTime.getTime() + 50)
@@ -73,18 +70,16 @@ describe('expectAsync is just expect in Jest', () => {
 });
 
 
-describe('async mocks', () => {
-  it('can resolve', async () => {
-    const asyncMock = jest.fn().mockResolvedValue(43); // also mockResolvedValueOnce
-    const result = await asyncMock();
-    expect(result).toBe(43)
+describe('optional "done" parameter', () => {
+  it('can be used when testing callback code', done => {
+    Promise.resolve()
+      .then(() => expect(true).toBeTruthy())
+      .then(done)
+      // .then(() => Promise.reject())
+      // .catch(() => done('That didn't work'));
   });
 
-  it('can reject', async () => {
-    const asyncMock = jest.fn().mockRejectedValue(43); // also mockRejectedValueOnce
-    // This is the same as:
-    // jest.fn().mockImplementation(() => Promise.reject(43));
-
-    return expect(asyncMock).rejects.toBe(42);
+  xit('can fail with a specific message', done => {
+    Promise.reject().catch(err => done(err || 'big fail'));
   });
-})
+});
