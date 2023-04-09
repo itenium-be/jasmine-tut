@@ -85,6 +85,6 @@ describe('async mocks', () => {
     // This is the same as:
     // jest.fn().mockImplementation(() => Promise.reject(43));
 
-    expect(asyncMock).rejects.toBe(43);
+    return expect(asyncMock).rejects.toBe(42);
   });
 })
